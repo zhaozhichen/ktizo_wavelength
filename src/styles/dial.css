@@ -1,0 +1,179 @@
+/* Wavelength Dial Styles */
+
+.dial-container {
+    width: 100%;
+    max-width: 360px;
+    height: 200px;
+    position: relative;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    margin: 16px auto;
+}
+
+.dial-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Score zones gradient */
+.dial-zone {
+    transition: opacity var(--wl-transition-normal);
+}
+
+.dial-zone.zone-4 {
+    fill: var(--wl-gold);
+}
+
+.dial-zone.zone-3 {
+    fill: var(--wl-orange);
+}
+
+.dial-zone.zone-2 {
+    fill: var(--wl-red);
+}
+
+.dial-base {
+    fill: rgba(30, 27, 75, 0.9);
+    stroke: rgba(255, 255, 255, 0.15);
+    stroke-width: 2;
+}
+
+/* Target pointer (psychic view) */
+.target-pointer {
+    transition: opacity var(--wl-transition-slow);
+}
+
+.target-pointer.hidden {
+    opacity: 0;
+}
+
+.target-pointer line {
+    stroke: var(--wl-gold);
+    stroke-width: 4;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+
+.target-pointer circle {
+    fill: var(--wl-gold);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+}
+
+/* Guess pointer (draggable) */
+.guess-pointer {
+    cursor: grab;
+    transition: filter var(--wl-transition-fast);
+}
+
+.guess-pointer:active {
+    cursor: grabbing;
+}
+
+.guess-pointer.dragging {
+    filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.8));
+}
+
+.guess-pointer line {
+    stroke: var(--wl-danger);
+    stroke-width: 5;
+    stroke-linecap: round;
+}
+
+.guess-pointer circle {
+    fill: var(--wl-danger);
+}
+
+.guess-pointer .handle {
+    fill: white;
+    stroke: var(--wl-danger);
+    stroke-width: 3;
+    cursor: grab;
+}
+
+.guess-pointer .handle:active {
+    cursor: grabbing;
+}
+
+/* Dial ticks */
+.dial-tick {
+    stroke: rgba(255, 255, 255, 0.2);
+    stroke-width: 1;
+}
+
+.dial-tick.major {
+    stroke: rgba(255, 255, 255, 0.4);
+    stroke-width: 2;
+}
+
+/* Labels at edges */
+.dial-label {
+    fill: var(--wl-text);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.dial-label.left {
+    text-anchor: start;
+}
+
+.dial-label.right {
+    text-anchor: end;
+}
+
+/* Reveal animation */
+@keyframes revealTarget {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.target-pointer.revealing {
+    animation: revealTarget 0.6s ease-out forwards;
+}
+
+/* Zone highlight on reveal */
+@keyframes zoneGlow {
+
+    0%,
+    100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(1.3);
+    }
+}
+
+.dial-zone.highlight {
+    animation: zoneGlow 0.8s ease-in-out 2;
+}
+
+/* Touch feedback */
+.dial-touch-area {
+    fill: transparent;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 360px) {
+    .dial-container {
+        height: 160px;
+    }
+
+    .dial-label {
+        font-size: 10px;
+    }
+}
