@@ -46,28 +46,27 @@ export function Game({ onBack }: GameProps) {
 
     return (
         <div className="game-wrapper">
-            {/* Header */}
-            <header className="game-header">
-                <div className="header-top">
-                    <div className="header-left"></div>
-                    <button className="back-btn-centered" onClick={handleBack}>
-                        {t.back}
-                    </button>
-                    <LanguageToggle
-                        language={language}
-                        onToggle={toggleLanguage}
-                        className="header-lang-toggle"
-                    />
-                </div>
+            {/* Language toggle - top right like generator */}
+            <LanguageToggle
+                language={language}
+                onToggle={toggleLanguage}
+                className="language-toggle"
+            />
 
-                <div className="header-bottom">
+            {/* Header elements stack */}
+            <div className="game-header-centered">
+                <button className="back-btn-clean" onClick={handleBack}>
+                    {t.back}
+                </button>
+
+                <div className="game-stats-row">
                     <div className="game-stats">
                         <span className="round-count">{t.round} {roundNumber}</span>
                         <span className="separator">|</span>
                         <span className="total-score">{t.score}: {scores.team1}</span>
                     </div>
                 </div>
-            </header>
+            </div>
 
             {/* Game content based on phase */}
             <div className="game-content">

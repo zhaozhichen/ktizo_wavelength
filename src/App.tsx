@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { GameProvider } from './contexts/GameContext'
+import { useGame } from './contexts/GameContext'
 import { CardGenerator } from './components/CardGenerator'
 import { Game } from './components/game'
 import { LanguageToggle } from './components/LanguageToggle'
@@ -27,12 +27,13 @@ type AppView = 'menu' | 'game' | 'generator';
 
 function App() {
   const [view, setView] = useState<AppView>('menu');
-  const [language, setLanguage] = useState<'en' | 'zh'>('zh');
+  const { state, setLanguage } = useGame();
+  const { language } = state;
 
   const t = UI_TEXT[language];
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'en' ? 'zh' : 'en');
+    setLanguage(language === 'en' ? 'zh' : 'en');
   };
 
   // Main menu
@@ -92,11 +93,9 @@ function App() {
 
   // Game
   return (
-    <GameProvider>
-      <div className="game-container">
-        <Game onBack={() => setView('menu')} />
-      </div>
-    </GameProvider>
+    <div className="game-container">
+      <Game onBack={() => setView('menu')} />
+    </div>
   );
 }
 

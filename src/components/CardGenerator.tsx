@@ -44,7 +44,7 @@ export function CardGenerator({ onBack, language = 'zh' }: CardGeneratorProps) {
     return (
         <div className="card-generator">
             {onBack && (
-                <button className="back-btn" onClick={onBack}>
+                <button className="back-btn-clean" onClick={onBack}>
                     {t.back}
                 </button>
             )}
