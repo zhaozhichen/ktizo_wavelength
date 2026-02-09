@@ -14,12 +14,14 @@ const UI_TEXT = {
     subtitle: 'A game of reading minds',
     playGame: '🎮 Play Game',
     cardGenerator: '🎴 Card Generator',
+    rules: '📜 Game Rules',
   },
   zh: {
     title: '心电感应',
     subtitle: '一款读心游戏',
     playGame: '🎮 开始游戏',
     cardGenerator: '🎴 卡牌生成器',
+    rules: '📜 游戏规则',
   },
 };
 
@@ -68,9 +70,19 @@ function App() {
               className="btn btn-secondary"
               onClick={() => setView('generator')}
             >
-              <span className="btn-icon">🎴</span>
               {t.cardGenerator}
             </button>
+
+            <a
+              href="/Wavelength_rules.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-secondary"
+              style={{ textDecoration: 'none' }}
+            >
+              <span className="btn-icon">📜</span>
+              {t.rules}
+            </a>
           </div>
         </div>
       </div>
