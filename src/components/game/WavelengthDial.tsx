@@ -85,8 +85,8 @@ function calculatePosition(
     // Invert: left side (0) to right side (180)
     degrees = 180 - degrees;
 
-    // Clamp to valid range
-    degrees = Math.max(10, Math.min(170, degrees));
+    // Clamp to the full semicircle, inclusive.
+    degrees = Math.max(0, Math.min(180, degrees));
 
     return degrees;
 }

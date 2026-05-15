@@ -16,9 +16,9 @@ const initialState: GameState = {
     lastRoundScore: 0,
 };
 
-// Generate random target position (between 20 and 160 degrees for playability)
+// Generate random target position across the full semicircle, inclusive.
 function generateTargetPosition(): number {
-    return Math.floor(Math.random() * 140) + 20;
+    return Math.floor(Math.random() * 181);
 }
 
 // Reducer
