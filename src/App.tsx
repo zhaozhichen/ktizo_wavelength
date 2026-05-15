@@ -12,16 +12,16 @@ const UI_TEXT = {
   en: {
     title: 'Wavelength',
     subtitle: 'A game of reading minds',
-    playGame: '🎮 Play Game',
+    playGame: 'Play Game',
     cardGenerator: '🎴 Card Generator',
-    rules: '📜 Game Rules',
+    rules: 'Game Rules',
   },
   zh: {
     title: '心电感应',
     subtitle: '一款读心游戏',
-    playGame: '🎮 开始游戏',
+    playGame: '开始游戏',
     cardGenerator: '🎴 卡牌生成器',
-    rules: '📜 游戏规则',
+    rules: '游戏规则',
   },
 };
 
